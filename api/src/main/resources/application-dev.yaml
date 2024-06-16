@@ -1,0 +1,10 @@
+spring:
+    application.name: api
+    datasource:
+        username: ${JDBC_USERNAME}
+        password: ${JDBC_USERNAME_PASSWORD}
+        url: ${JDBC_DATABASE_URL}
+    jpa:
+        show-sql: true
+        properties:
+            "[format_sql]": true

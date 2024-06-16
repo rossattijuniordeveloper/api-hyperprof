@@ -1,0 +1,48 @@
+services:
+  db:
+    image: mysql:8.1.0
+    env_file:
+      - ./db/.env
+    ports:
+      - "3306:3306"
+    networks:
+      - api-network  
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin","ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10     
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile    
+    ports:
+      - "80:80"
+    networks:
+      - api-network
+  app:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    env_file:
+      - ./api/.env
+    ports:
+      - "8080:8080"
+    networks:
+      - api-network  
+    volumes:
+      - ./api:/api
+    depends_on:
+      db:
+        condition: service_healthy        
+        
+networks:
+  api-network:
+    driver: bridge
+volumes:
+  db_data:
+  
+ 

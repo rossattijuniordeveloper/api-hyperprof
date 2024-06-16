@@ -1,0 +1,12 @@
+server:
+    port: ${HYPERPROF_PORT}    
+spring:
+    application.name: api    
+    datasource:
+        username: ${HYPERPROF_DB_USER}
+        password: ${HYPERPROF_DB_PASSWORD}
+        url: ${HYPERPROF_DB_URL}
+    jpa:
+        show-sql: false
+        properties:
+            "[format_sql]": false

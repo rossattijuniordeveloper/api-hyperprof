@@ -1,0 +1,18 @@
+spring:
+    application.name: api
+    flyway:
+        enabled: false
+    web:
+        locale: pt_BR
+    profiles:
+      active: ${HYPERPROF_PROFILE:dev}
+    jpa:
+        hibernate:
+            ddl-auto: update
+            
+
+
+
+
+
+
