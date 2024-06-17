@@ -29,11 +29,11 @@ public class teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "name",length = 100)
+    @Column(name = "name")
     private String name;
 
     @ToString.Include
-    @Column(name = "email",length = 50)
+    @Column(name = "email")
     private String email;
     
     @Column(name = "age")
@@ -42,16 +42,19 @@ public class teacher {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "priceTime")
+    @Column(name = "price_time")
     private BigDecimal price_time;
+
+    @Column(name =   "profile_picture")
+    private String profilePicture;
 
     @Column(name = "password")
     private String password;
 
-    @Column(name = "createdAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updatedAt")
+    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
 }
